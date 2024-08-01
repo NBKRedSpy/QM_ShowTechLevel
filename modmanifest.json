@@ -1,0 +1,7 @@
+{
+    "UniqueModName": "nbk_redspy_QM_ShowTechLevel",
+    "Assemblies": [
+        "QM_ShowTechLevel.dll"
+    ],
+    "Dependencies": []
+}
