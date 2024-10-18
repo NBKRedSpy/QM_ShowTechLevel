@@ -17,24 +17,20 @@ namespace QM_ShowTechLevel
 
 
         public static bool ReplaceText { get; set; }
-        public static Station Station { get; set; }
-        public static StationStatus StationStatus { get; set; }
-        public static Mission StationMission { get; set; }
+
+        public static Mission Mission { get; set; }
 
 
-        public static void Prefix(Station station, StationStatus stationStatus, Mission stationMission)
+        public static void Prefix(Mission mission)
         {
             ReplaceText = true;
-            Station = station;
-            StationStatus = stationStatus;
-            StationMission = stationMission;
+            Mission = mission;
         }
 
         public static void Postfix()
         {
             ReplaceText = false;
-            Station = null;
-            StationMission = null;
+            Mission = null;
         }
     }
 }

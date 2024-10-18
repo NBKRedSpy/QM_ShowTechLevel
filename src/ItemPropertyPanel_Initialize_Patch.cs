@@ -3,6 +3,7 @@ using MGSC;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using static MGSC.ItemPropertyPanel;
@@ -19,27 +20,18 @@ namespace QM_ShowTechLevel
 
         public static void Prefix(ItemPropertyType propertyType, ref string value)
         {
-            if (!TooltipFactory_BuildStationTooltip_Patch.ReplaceText) return;
-
-            string factionId;
-            switch (propertyType)
+            if (!TooltipFactory_BuildStationTooltip_Patch.ReplaceText ||
+                (propertyType != ItemPropertyType.Beneficiary && propertyType != ItemPropertyType.Victim))
             {
-                case ItemPropertyType.StationOwner:
-                    factionId = TooltipFactory_BuildStationTooltip_Patch.Station.OwnerFactionId;
-                    break;
-                case ItemPropertyType.MissionCustomer:
-                    if (TooltipFactory_BuildStationTooltip_Patch.StationMission == null) return;
-
-                    factionId = TooltipFactory_BuildStationTooltip_Patch.StationMission.BeneficiaryFactionId;
-                    break;
-                case ItemPropertyType.Attackers:
-                    if (TooltipFactory_BuildStationTooltip_Patch.StationMission == null) return;
-
-                    factionId = TooltipFactory_BuildStationTooltip_Patch.StationMission.VictimFactionId;
-                    break;
-                default:
-                    return;
+                return;
             }
+
+            Mission mission = TooltipFactory_BuildStationTooltip_Patch.Mission;
+
+            string factionId = propertyType == ItemPropertyType.Beneficiary ?
+                mission.BeneficiaryFactionId : mission.VictimFactionId;
+
+            if (string.IsNullOrEmpty(factionId)) return;
 
             if (Factions == null)
             {
@@ -48,7 +40,7 @@ namespace QM_ShowTechLevel
 
             Faction faction = Factions.Get(factionId);
 
-            value = $"<size=70%>({faction.TechLevel:0.###})</size> {value}";
+            value = $"<size=70%>({faction.CurrentTechLevel:0.###})</size> {value}";
         }
 
     }

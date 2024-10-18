@@ -12,3 +12,8 @@ Thanks!
 
 # Source Code
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_ShowTechLevel
+
+# Change Log
+
+## 1.1.0
+Version .8 compatibility.
