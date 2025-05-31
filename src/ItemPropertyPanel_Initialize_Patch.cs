@@ -6,12 +6,13 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
-using static MGSC.ItemPropertyPanel;
+using UnityEngine;
+using static MGSC.TooltipProperty;
 
 namespace QM_ShowTechLevel
 {
 
-    [HarmonyPatch(typeof(ItemPropertyPanel), nameof(ItemPropertyPanel.Initialize),
+    [HarmonyPatch(typeof(TooltipProperty), nameof(TooltipProperty.Initialize),
         new Type[] { typeof(ItemPropertyType), typeof(string), typeof(ComprasionType), typeof(string) })]
     internal static class ItemPropertyPanel_Initialize_Patch
     {
