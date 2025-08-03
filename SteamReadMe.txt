@@ -1,12 +1,5 @@
-[h1]Quasimorph Show Tech Level - BETA ONLY[/h1]
+[h1]Quasimorph Show Tech Level[/h1]
 
-
-[h1]Beta Only[/h1]
-
-This is only for the opt in beta version of the game.
-For the normal release, use the mod of the same name without the beta suffix.
-
-[h1]Docs[/h1]
 
 Adds a faction's tech level to the station tooltip.
 

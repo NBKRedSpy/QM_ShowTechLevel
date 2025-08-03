@@ -7,7 +7,7 @@
   </PropertyGroup>
 	<PropertyGroup>
 		<GAME_NAME>Quasimorph</GAME_NAME>
-		<SteamId>3490546885</SteamId>
+		<SteamId>3300662877</SteamId>
 	</PropertyGroup>
 	<PropertyGroup>
 		<GAME_PATH Condition="!Exists('$(GAME_PATH)')">$([MSBuild]::GetRegistryValueFromView('HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Uninstall\Steam App $(GAME_STEAM_ID)', 'InstallLocation', null, RegistryView.Registry64, RegistryView.Registry32))</GAME_PATH>
@@ -28,9 +28,16 @@
 
 
 	<ItemGroup>
+		<Reference Include="0Harmony">
+			<HintPath>$(ManagedPath)0Harmony.dll</HintPath>
+		</Reference>
+
 		<Reference Include="Assembly-CSharp" publicize="true">
 			<HintPath>$(ManagedPath)Assembly-CSharp.dll</HintPath>
 			<Private>False</Private>
+		</Reference>
+		<Reference Include="Newtonsoft.Json">
+			<HintPath>$(ManagedPath)Newtonsoft.Json.dll</HintPath>
 		</Reference>
 		<Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
@@ -53,7 +60,6 @@
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
-		<PackageReference Include="Lib.harmony" Version="2.3.3" />
 		<PackageReference Include="Microsoft.CSharp" Version="4.7.0" />
 		<PackageReference Include="System.Data.DataSetExtensions" Version="4.5.0" />
 	</ItemGroup>
@@ -63,7 +69,7 @@
 
 	</PropertyGroup>
 	<Target Name="PostBuild" AfterTargets="PostBuildEvent">
-		<Exec Command="@echo off&#xD;&#xA;set deployDir=&quot;$(WorkshopPath)&quot;&#xD;&#xA;if '$(SteamId)'=='' (echo SteamId in project not set.  Aborting Workshop Deployment &amp;&amp; exit)&#xD;&#xA;echo deploying to %25deployDir%25&#xD;&#xA;&#xD;&#xA;mkdir &quot;$(WorkshopPath)&quot;&#xD;&#xA;&#xD;&#xA;xcopy /f /y &quot;$(ProjectDir)../media/thumbnail.png&quot; %25deployDir%25&#xD;&#xA;xcopy /f /y &quot;$(ProjectDir)../modmanifest.json&quot; %25deployDir%25&#xD;&#xA;&#xD;&#xA;&#xD;&#xA;xcopy /f /y   &quot;$(TargetDir)$(TargetName).*&quot; %25deployDir%25&#xD;&#xA;xcopy /f /y   &quot;$(TargetDir)0Harmony.dll&quot; %25deployDir%25&#xD;&#xA;&#xD;&#xA;" />
+		<Exec Command="@echo off&#xD;&#xA;set deployDir=&quot;$(WorkshopPath)&quot;&#xD;&#xA;if '$(SteamId)'=='' (echo SteamId in project not set.  Aborting Workshop Deployment &amp;&amp; exit)&#xD;&#xA;echo deploying to %25deployDir%25&#xD;&#xA;&#xD;&#xA;mkdir &quot;$(WorkshopPath)&quot;&#xD;&#xA;&#xD;&#xA;xcopy /f /y &quot;$(ProjectDir)../media/thumbnail.png&quot; %25deployDir%25&#xD;&#xA;xcopy /f /y &quot;$(ProjectDir)../modmanifest.json&quot; %25deployDir%25&#xD;&#xA;&#xD;&#xA;xcopy /f /y   &quot;$(TargetDir)$(TargetName).*&quot; %25deployDir%25&#xD;&#xA;&#xD;&#xA;" />
 		<ItemGroup>
 			<WorkshopSourceFile Include="$(WorkshopPath)*.*" />
 			<PackageRemoveFiles Include="$(PackageFolder)$(TargetName)/*.pdb" />

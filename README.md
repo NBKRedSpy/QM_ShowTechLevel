@@ -1,12 +1,7 @@
-# Quasimorph Show Tech Level - BETA ONLY
+# Quasimorph Show Tech Level
 
 ![thumbnail icon](media/thumbnail.png)
 
-# Beta Only
-This is only for the opt in beta version of the game.
-For the normal release, use the mod of the same name without the beta suffix.
-
-# Docs
 Adds a faction's tech level to the station tooltip.
 
 The tech level of a faction is an indicator of the difficulty of a mission.

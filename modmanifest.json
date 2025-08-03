@@ -1,5 +1,5 @@
 {
-    "UniqueModName": "nbk_redspy_QM_ShowTechLevel_beta",
+    "UniqueModName": "nbk_redspy_QM_ShowTechLevel",
     "Assemblies": [
         "QM_ShowTechLevel.dll"
     ],
