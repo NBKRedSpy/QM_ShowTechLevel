@@ -2,7 +2,7 @@
 
 ![thumbnail icon](media/thumbnail.png)
 
-Adds a faction's tech level to the station tooltip.
+Adds a faction's tech and power level to the station tooltip.
 
 The tech level of a faction is an indicator of the difficulty of a mission.
 
@@ -14,9 +14,11 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_ShowTechLevel
 
 # Change Log
+## 1.2.0
+* Added power level to the text.
 
 ## 1.1.1
-Version 0.9.1.384 compatibility.
+* Version 0.9.1.384 compatibility.
 
 ## 1.1.0
-Version .8 compatibility.
+* Version .8 compatibility.

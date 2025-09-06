@@ -41,7 +41,7 @@ namespace QM_ShowTechLevel
 
             Faction faction = Factions.Get(factionId);
 
-            value = $"<size=70%>({faction.CurrentTechLevel:0.###})</size> {value}";
+            value = $"<size=70%>{faction.CurrentTechLevel} / {(faction.Power/1000f):0.#}K</size> {value}";
         }
 
     }

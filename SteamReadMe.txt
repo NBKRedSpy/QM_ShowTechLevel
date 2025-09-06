@@ -1,7 +1,7 @@
 [h1]Quasimorph Show Tech Level[/h1]
 
 
-Adds a faction's tech level to the station tooltip.
+Adds a faction's tech and power level to the station tooltip.
 
 The tech level of a faction is an indicator of the difficulty of a mission.
 
@@ -16,10 +16,17 @@ Source code is available on GitHub at https://github.com/NBKRedSpy/QM_ShowTechLe
 
 [h1]Change Log[/h1]
 
-[h2]1.1.1[/h2]
+[h2]1.2.0[/h2]
+[list]
+[*]Added power level to the text.
+[/list]
 
-Version 0.9.1.384 compatibility.
+[h2]1.1.1[/h2]
+[list]
+[*]Version 0.9.1.384 compatibility.
+[/list]
 
 [h2]1.1.0[/h2]
-
-Version .8 compatibility.
+[list]
+[*]Version .8 compatibility.
+[/list]
