@@ -39,6 +39,9 @@
 		<Reference Include="Newtonsoft.Json">
 			<HintPath>$(ManagedPath)Newtonsoft.Json.dll</HintPath>
 		</Reference>
+		<Reference Include="Unity.TextMeshPro">
+		  <HintPath>D:\Games\Steam\steamapps\common\Quasimorph\Quasimorph_Data\Managed\Unity.TextMeshPro.dll</HintPath>
+		</Reference>
 		<Reference Include="UnityEngine, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>$(ManagedPath)UnityEngine.dll</HintPath>
@@ -53,6 +56,9 @@
 			<SpecificVersion>False</SpecificVersion>
 			<HintPath>$(ManagedPath)UnityEngine.InputLegacyModule.dll</HintPath>
 			<Private>False</Private>
+		</Reference>
+		<Reference Include="UnityEngine.UI">
+		  <HintPath>$(ManagedPath)UnityEngine.UI.dll</HintPath>
 		</Reference>
 	</ItemGroup>
 	<ItemGroup>
