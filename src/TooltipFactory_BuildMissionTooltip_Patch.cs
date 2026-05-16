@@ -20,42 +20,10 @@ namespace QM_ShowTechLevel
 
         public static void Postfix(TooltipFactory __instance, Mission mission)
         {
-
-
-            if (mission.IsStoryMission || mission.ProcMissionType == ProceduralMissionType.CEOElimination)
-            {
-                return;
-            }
-
-
-            //Hack to reset the text.
-
-            //__instance.AddPanelToTooltip().LocalizeName("tooltip.Power").SetValue($"{(faction.Power / 1000f):0.#}K");
-            //__instance.AddPanelToTooltip().LocalizeName("tooltip.TechLevel").SetValue(faction.CurrentTechLevel);
-
-
+            //Hack to avoid a transpile.
+            //  The existing tooltip lines are in the _usedPropertyPanels list.  Since there is no text, match on the icon.
             SetTechLevelText(__instance._usedPropertyPanels, "common_beneficiary", mission.BeneficiaryFactionId);
-
             SetTechLevelText(__instance._usedPropertyPanels, "common_panic", mission.VictimFactionId);
-
-
-
-            //TooltipProperty property = null;
-
-            //property = __instance._usedPropertyPanels
-            //    .Where(x => x.Icon.sprite == Data.TooltipIcons.GetSpriteByTag("common_beneficiary")).FirstOrDefault();
-
-            //if(property != null)
-            //{
-            //    Faction faction = Plugin.State.Get<Factions>().Get(mission.BeneficiaryFactionId);
-
-            //    string text = property.Value.text;
-            //    string newText = $"<size=70%>{faction.CurrentTechLevel} / {(faction.Power/1000f):0.#}K</size> {text}";
-
-            //    property.SetValue(newText, false);
-            //}
-
-            ////__instance._usedPropertyPanels[0].Icon.sprite  == Data.TooltipIcons.GetSpriteByTag("common_beneficiary")
         }
 
         private static void SetTechLevelText(List<TooltipProperty> usedPropertyPanels, string spriteId, string factionId)
@@ -68,6 +36,8 @@ namespace QM_ShowTechLevel
             if (property == null) return;
 
             Faction faction = Plugin.State.Get<Factions>().Get(factionId);
+
+            if (faction == null) return;
 
             string text = property.Value.text;
             string newText = $"<size=70%>{faction.CurrentTechLevel} / {(faction.Power / 1000f):0.#}K</size> {text}";
