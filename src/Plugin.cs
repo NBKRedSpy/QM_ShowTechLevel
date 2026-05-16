@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using MGSC;
+using ShowTechLevel_Bootstrap;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -9,9 +10,9 @@ using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
 
-namespace QM_ShowTechLevel
+namespace ShowTechLevel
 {
-    public static class Plugin
+    public class Plugin : BootstrapMod
     {
         public static string ModAssemblyName => Assembly.GetExecutingAssembly().GetName().Name;
 
@@ -21,8 +22,12 @@ namespace QM_ShowTechLevel
 
         public static State State;
 
-        [Hook(ModHookType.AfterConfigsLoaded)]
-        public static void AfterConfig(IModContext context)
+        public Plugin(HookEvents hookEvents, bool isBeta) : base(hookEvents, isBeta)
+        {
+            hookEvents.BeforeBootstrap += BeforeBootstrap;
+        }
+
+        public void BeforeBootstrap(IModContext context)
         {
             State = context.State;
 
