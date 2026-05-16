@@ -1,5 +1,5 @@
 {
-    "UniqueModName": "nbk_redspy_QM_ShowTechLevel",
+    "UniqueModName": "nbk_redspy_ShowTechLevel",
     "Assemblies": [
         "ShowTechLevel_bootstrap.dll"
     ],
