@@ -1,0 +1,12 @@
+# Change Log
+## 1.3.0
+* Added beta support.
+
+## 1.2.0
+* Added power level to the text.
+
+## 1.1.1
+* Version 0.9.1.384 compatibility.
+
+## 1.1.0
+* Version .8 compatibility.

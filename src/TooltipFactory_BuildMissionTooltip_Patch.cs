@@ -11,7 +11,7 @@ using System.Threading.Tasks;
 using UnityEngine;
 using static MGSC.TooltipProperty;
 
-namespace QM_ShowTechLevel
+namespace ShowTechLevel
 {
 
     [HarmonyPatch(typeof(TooltipFactory), nameof(TooltipFactory.BuildMissionTooltip))]

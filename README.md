@@ -14,11 +14,4 @@ Thanks!
 Source code is available on GitHub at https://github.com/NBKRedSpy/QM_ShowTechLevel
 
 # Change Log
-## 1.2.0
-* Added power level to the text.
-
-## 1.1.1
-* Version 0.9.1.384 compatibility.
-
-## 1.1.0
-* Version .8 compatibility.
+https://github.com/NBKRedSpy/QM_ShowTechLevel/blob/main/CHANGELOG.md
