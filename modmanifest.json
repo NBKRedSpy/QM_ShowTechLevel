@@ -1,0 +1,11 @@
+{
+    "UniqueModName": "nbk_redspy_QM_ShowTechLevel",
+    "Assemblies": [
+        "ShowTechLevel_bootstrap.dll"
+    ],
+    "Dependencies": [],
+    "SteamTags": [
+        "0.9.1",
+        "Quality of Life"
+  ]
+}
