@@ -52,6 +52,7 @@
 		<Message Importance="high" Text="Workshop folder: $(WorkshopPath)" />
 		<MakeDir Directories="$(WorkshopPath)" ContinueOnError="true" />
 		<Copy SourceFiles="@(BuildSource)" DestinationFolder="$(WorkshopPath)" />
+		<Copy SourceFiles="../../main-repo/media/thumbnail.png" DestinationFolder="$(WorkshopPath)" />
 	</Target>
 
 </Project>
