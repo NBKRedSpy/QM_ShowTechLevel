@@ -1,4 +1,7 @@
 # Change Log
+## 1.4.0
+* Support for post 1.0 release.
+
 ## 1.3.0
 * Added beta support.
 

@@ -1,5 +1,6 @@
 ﻿using HarmonyLib;
 using MGSC;
+using Microsoft.SqlServer.Server;
 using Newtonsoft.Json.Linq;
 using System;
 using System.Collections.Generic;
@@ -14,37 +15,19 @@ using static MGSC.TooltipProperty;
 namespace ShowTechLevel
 {
 
-    [HarmonyPatch(typeof(TooltipFactory), nameof(TooltipFactory.BuildMissionTooltip))]
+    //TODO:  Rename the class after testing.
+
+    [HarmonyPatch(typeof(TooltipFactionHeader), nameof(TooltipFactionHeader.Initialize))]
     internal static class TooltipFactory_BuildMissionTooltip_Patch
     {
 
-        public static void Postfix(TooltipFactory __instance, Mission mission)
+
+
+        public static void Postfix(TooltipFactionHeader __instance, Faction faction)
         {
-            //Hack to avoid a transpile.
-            //  The existing tooltip lines are in the _usedPropertyPanels list.  Since there is no text, match on the icon.
-            SetTechLevelText(__instance._usedPropertyPanels, "common_beneficiary", mission.BeneficiaryFactionId);
-            SetTechLevelText(__instance._usedPropertyPanels, "common_panic", mission.VictimFactionId);
-        }
-
-        private static void SetTechLevelText(List<TooltipProperty> usedPropertyPanels, string spriteId, string factionId)
-        {
-            TooltipProperty property = null;
-
-            property = usedPropertyPanels
-                .Where(x => x.Icon.sprite == Data.TooltipIcons.GetSpriteByTag(spriteId)).FirstOrDefault();
-
-            if (property == null) return;
-
-            Faction faction = Plugin.State.Get<Factions>().Get(factionId);
-
-            if (faction == null) return;
-
-            string text = property.Value.text;
-            string newText = $"<size=70%>{faction.CurrentTechLevel} / {(faction.Power / 1000f):0.#}K</size> {text}";
-
-            property.SetValue(newText, false);
+            string techLevel = __instance._techLevelDesc.text;
+            __instance._techLevelDesc.SetText($"<size=60%>{techLevel}/{(faction.Power / 1000f):0.#}k</size>");
 
         }
-
     }
 }

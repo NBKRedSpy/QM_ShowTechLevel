@@ -2,9 +2,7 @@
 
 ![thumbnail icon](media/thumbnail.png)
 
-Adds a faction's tech and power level to the station tooltip.
-
-The tech level of a faction is an indicator of the difficulty of a mission.
+Modifies the mission info tooltip to show the power level of the faction in addition to the existing tech level.
 
 # Support
 If you enjoy my mods and want to buy me a coffee, check out my [Ko-Fi](https://ko-fi.com/nbkredspy71915) page.
