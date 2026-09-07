@@ -14,19 +14,13 @@ using static MGSC.TooltipProperty;
 
 namespace ShowTechLevel
 {
-
-    //TODO:  Rename the class after testing.
-
     [HarmonyPatch(typeof(TooltipFactionHeader), nameof(TooltipFactionHeader.Initialize))]
-    internal static class TooltipFactory_BuildMissionTooltip_Patch
+    internal static class TooltipFactionHeader_Initialize_Patch
     {
-
-
-
         public static void Postfix(TooltipFactionHeader __instance, Faction faction)
         {
-            string techLevel = __instance._techLevelDesc.text;
-            __instance._techLevelDesc.SetText($"<size=60%>{techLevel}/{(faction.Power / 1000f):0.#}k</size>");
+
+            __instance._techLevelDesc.SetText($"<size=70%>{faction.CurrentTechLevel} - {(faction.Power / 1000f):0.#}k</size>");
 
         }
     }

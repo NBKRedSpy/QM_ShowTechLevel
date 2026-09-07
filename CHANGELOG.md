@@ -1,4 +1,7 @@
 # Change Log
+## 1.4.1
+* Easier to read layout.
+
 ## 1.4.0
 * Support for post 1.0 release.
 
